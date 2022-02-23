@@ -7,6 +7,7 @@ export default class Login{
         this._testdata = testdata;
 
     }
+
     async blank () {
 
         await LoginPage.open();
