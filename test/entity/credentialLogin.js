@@ -12,12 +12,6 @@ export default class Credential{
     set password(value){
         this._password = value;
     }
-    get username02(){
-        return this._username02;
-    }
-    set username02(value){
-        this._username02 = value;
-    }
     get invalid_username(){
         return this._invalid_username;
     }
