@@ -131,77 +131,145 @@ describe('Register001', () => {
     // });
 
 
-    it( 'T014 - Register with blank transaction password', async() => {
+    // it( 'T014 - Register with blank transaction password', async() => {
 
-        const blanksecpass = testdataR.credential;
-        const registerFlow = new Register(blanksecpass);
-        await registerFlow.RegisterNoTransactionPass();
+    //     const blanksecpass = testdataR.credential;
+    //     const registerFlow = new Register(blanksecpass);
+    //     await registerFlow.RegisterNoTransactionPass();
+    //     let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+    //     await expect(message).toHaveText('Transaction Password Is Required');
+
+    // });
+
+    // it( 'T015 - Register with less than 6 char transaction password', async() => {
+
+    //     const lesssecpass = testdataR.credential;
+    //     const registerFlow = new Register(lesssecpass);
+    //     await registerFlow.RegisterLessTransactionPass();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('6 Digits Number');
+
+    // });
+
+    // it( 'T016 - Register with transaction password contain special character', async() => {
+
+    //     const specialsecpass = testdataR.credential;
+    //     const registerFlow = new Register(specialsecpass);
+    //     await registerFlow.RegisterSpecialTransactionPass();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('6 Digits Number');
+
+    // });
+
+    // it( 'T017 - Register with transaction password with alphabet', async() => {
+
+    //     const alphabetsecpass = testdataR.credential;
+    //     const registerFlow = new Register(alphabetsecpass);
+    //     await registerFlow.RegisterAlphabetTransactionPass();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('6 Digits Number');
+
+
+    // });
+
+    it( 'T018 - Register with blank email', async() => {
+
+        const blankemail = testdataR.credential;
+        const registerFlow = new Register(blankemail);
+        await registerFlow.RegisterNoEmail();
         let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
-        await expect(message).toHaveText('Transaction Password Is Required');
+        await expect(message).toHaveText('Email Is Required');
 
     });
 
-    it( 'T015 - Register with less than 6 char transaction password', async() => {
+    it( 'T019 - Register with wrong email format', async() => {
 
-        const lesssecpass = testdataR.credential;
-        const registerFlow = new Register(lesssecpass);
-        await registerFlow.RegisterLessTransactionPass();
+        const wrongemail = testdataR.credential;
+        const registerFlow = new Register(wrongemail);
+        await registerFlow.RegisterWrongEmailFormat();
+        let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+        await expect(message).toHaveText('Invalid Email Format');
+
+    });
+
+    it( 'T020 - Register with existing email', async() => {
+
+        const existingemail = testdataR.credential;
+        const registerFlow = new Register(existingemail);
+        await registerFlow.RegisterExistingEmail();
         let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-        await expect(message).toHaveTextContaining('6 Digits Number');
+        await expect(message).toHaveTextContaining('Email Exist');
 
     });
 
-    it( 'T016 - Register with transaction password contain special character', async() => {
+    // it( 'T021 - Register with existing email', async() => {
 
-        const specialsecpass = testdataR.credential;
-        const registerFlow = new Register(specialsecpass);
-        await registerFlow.RegisterSpecialTransactionPass();
-        let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-        await expect(message).toHaveTextContaining('6 Digits Number');
-
-    });
-
-    it( 'T017 - Register with transaction password with alphabet', async() => {
-
-        const alphabetsecpass = testdataR.credential;
-        const registerFlow = new Register(alphabetsecpass);
-        await registerFlow.RegisterAlphabetTransactionPass();
-        let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-        await expect(message).toHaveTextContaining('6 Digits Number');
-
-
-    });
-
-    // it( 'T018 - Register with blank email', async() => {
-
-    //     const blankemail = testdataR.credential;
-    //     const registerFlow = new Register(blankemail);
-    //     await registerFlow.RegisterNoEmail();
-    //     let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
-    //     await expect(message).toHaveText('Transaction Password Is Required');
+    //     const existingemail = testdataR.credential;
+    //     const registerFlow = new Register(existingemail);
+    //     await registerFlow.RegisterExistingEmail();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('Email Exist');
 
     // });
 
-    // it( 'T019 - Register with blank transaction password', async() => {
+    // it( 'T024 - Register with existing email', async() => {
 
-    //     const blanksecpass = testdataR.credential;
-    //     const registerFlow = new Register(blanksecpass);
-    //     await registerFlow.RegisterNoTransactionPass();
-    //     let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
-    //     await expect(message).toHaveText('Transaction Password Is Required');
-
-    // });
-
-    // it( 'T020 - Register with blank transaction password', async() => {
-
-    //     const blanksecpass = testdataR.credential;
-    //     const registerFlow = new Register(blanksecpass);
-    //     await registerFlow.RegisterNoTransactionPass();
-    //     let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
-    //     await expect(message).toHaveText('Transaction Password Is Required');
+    //     const existingemail = testdataR.credential;
+    //     const registerFlow = new Register(existingemail);
+    //     await registerFlow.RegisterExistingEmail();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('Email Exist');
 
     // });
 
+    // it( 'T025 - Register with existing email', async() => {
 
+    //     const existingemail = testdataR.credential;
+    //     const registerFlow = new Register(existingemail);
+    //     await registerFlow.RegisterExistingEmail();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('Email Exist');
+
+    // });
+
+    // it( 'T026 - Register with existing email', async() => {
+
+    //     const existingemail = testdataR.credential;
+    //     const registerFlow = new Register(existingemail);
+    //     await registerFlow.RegisterExistingEmail();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('Email Exist');
+
+    // });
+
+    // it( 'T027 - Register with existing email', async() => {
+
+    //     const existingemail = testdataR.credential;
+    //     const registerFlow = new Register(existingemail);
+    //     await registerFlow.RegisterExistingEmail();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('Email Exist');
+
+    // });
+
+    // it( 'T028 - Register with existing email', async() => {
+
+    //     const existingemail = testdataR.credential;
+    //     const registerFlow = new Register(existingemail);
+    //     await registerFlow.RegisterExistingEmail();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('Email Exist');
+
+    // });
+
+    // it( 'T029 - Register with existing email', async() => {
+
+    //     const existingemail = testdataR.credential;
+    //     const registerFlow = new Register(existingemail);
+    //     await registerFlow.RegisterExistingEmail();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('Email Exist');
+
+    // });
 
 });

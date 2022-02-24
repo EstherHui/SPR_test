@@ -22,7 +22,8 @@ credentialR.Password7 = '123123123' ;
 credentialR.secondarypin1 = '123';
 credentialR.secondarypin2 = '123!56';
 credentialR.secondarypin3 = '123a56';
-
+credentialR.emailWrong = 'hawaiichickencom';
+credentialR.emailExisting = 'candy02@gmail.com';
 const data= {
     
     credential : credentialR
