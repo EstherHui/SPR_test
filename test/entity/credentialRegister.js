@@ -40,6 +40,54 @@ export default class Credential {
         this._password = value;
     }
 
+    get Password2(){
+        return this._Password2;
+    }
+
+    set Password2(value){
+        this._Password2 = value;
+    }
+
+    get Password3(){
+        return this._Password3;
+    }
+
+    set Password3(value){
+        this._Password3 = value;
+    }
+
+    get Password4(){
+        return this._Password4;
+    }
+
+    set Password4(value){
+        this._Password4 = value;
+    }
+
+    get Password5(){
+        return this._Password5;
+    }
+
+    set Password5(value){
+        this._Password5 = value;
+    }
+
+    get Password6(){
+        return this._Password6;
+    }
+
+    set Password6(value){
+        this._Password6 = value;
+    }
+
+    get Password7(){
+        return this._Password7;
+    }
+
+    set Password7(value){
+        this._Password7 = value;
+    }
+
     get secondarypin(){
         return this._secondarypin; 
     }
