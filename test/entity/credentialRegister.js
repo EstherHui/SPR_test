@@ -8,6 +8,30 @@ export default class Credential {
         this._username = value;
     }
 
+    get lessUsername(){
+        return this._lessUsername;
+    }
+
+    set lessUsername(value){
+        this._lessUsername = value;
+    }
+
+    get ExistingUsername(){
+        return this._existingusername;
+    }
+
+    set ExistingUsername(value){
+        this._existingusername = value;
+    }
+
+    get specialUsername(){
+        return this._specialUsername;
+    }
+
+    set specialUsername(value){
+        this._specialUsername = value;
+    }
+
     get password(){
         return this._password;
     }
@@ -71,21 +95,5 @@ export default class Credential {
     set email(value){
         this._email = value;
     }
-
-    // get busername(){
-    //     return this._busername;
-    // }
-
-    // set busername(value){
-    //     this._busername = value;
-    // }
-
-    // get bpassword(){
-    //     return this._bpassword;
-    // }
-
-    // set bpassword(value){
-    //     this._bpassword =  value;
-    // }
 
 }

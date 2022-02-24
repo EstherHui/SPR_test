@@ -10,8 +10,9 @@ credentialR.lastName = 'chicken';
 // credentialR.country = 'Malaysia';
 credentialR.mobile = '0175524897';
 credentialR.email = 'hawaii@chicken.com';
-// credentialR.busername = '';
-// credentialR.bpassword = '';
+credentialR.lessUsername = 'pie' ;
+credentialR.existingusername = 'candy02';
+credentialR.specialUsername = 'hawaii*10#';
 
 const data= {
     
