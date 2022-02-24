@@ -3,29 +3,39 @@ import testdataR from '../test_data/Register001';
 
 describe('Register001', () => {
 
-    // it( 'T001 - Register Display', async() =>{
+    it( 'T001 - Register Display', async() =>{
 
-    //     const registerFlow = new Register();
-    //     await registerFlow.RegisterDisplay();
+        const registerFlow = new Register();
+        await registerFlow.RegisterDisplay();
 
-    // });
+    });
 
-    // it( 'T002 - Register with blank all field', async() => {
+    it( 'T002 - Register with blank all field', async() => {
 
-    //     const registerFlow = new Register();
-    //     await registerFlow.blank();
-    //     let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
-    //     await expect(message).toHaveTextContaining('Is Required');
+        const registerFlow = new Register();
+        await registerFlow.blank();
+        let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+        await expect(message).toHaveTextContaining('Is Required');
 
-    // });
+    });
 
     it( 'T003 - Register with blank username', async() => {
 
         const blankusername = testdataR.credential;
-        const registerFlow = new Register();
-        await registerFlow.RegisterNoUsername(blankusername);
+        const registerFlow = new Register(blankusername);
+        await registerFlow.RegisterNoUsername();
         let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
         await expect(message).toHaveText('Username Is Required');
+
+    });
+
+    it( 'T004 - Register with blank password', async() => {
+
+        const blankpass = testdataR.credential;
+        const registerFlow = new Register(blankpass);
+        await registerFlow.RegisterNoPassword();
+        let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+        await expect(message).toHaveText('Password Is Required');
 
     });
 
