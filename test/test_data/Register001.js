@@ -19,6 +19,9 @@ credentialR.Password4 = 'as123123' ;
 credentialR.Password5 = '123!23123' ;
 credentialR.Password6 = '123123' ;
 credentialR.Password7 = '123123123' ;
+credentialR.secondarypin1 = '123';
+credentialR.secondarypin2 = '123!56';
+credentialR.secondarypin3 = '123a56';
 
 const data= {
     

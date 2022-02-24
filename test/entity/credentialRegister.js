@@ -96,6 +96,30 @@ export default class Credential {
         this._secondarypin = value;
     }
 
+    get secondarypin1(){
+        return this._secondarypin; 
+    }
+
+    set secondarypin1(value){
+        this._secondarypin1 = value;
+    }
+
+    get secondarypin2(){
+        return this._secondarypin; 
+    }
+
+    set secondarypin2(value){
+        this._secondarypin2 = value;
+    }
+
+    get secondarypin3(){
+        return this._secondarypin; 
+    }
+
+    set secondarypin3(value){
+        this._secondarypin = value;
+    }
+
     get invitationCode(){
         return this._invitationCode;
     }
