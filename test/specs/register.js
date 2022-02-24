@@ -146,8 +146,8 @@ describe('Register001', () => {
     //     const lesssecpass = testdataR.credential;
     //     const registerFlow = new Register(lesssecpass);
     //     await registerFlow.RegisterLessTransactionPass();
-    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-    //     await expect(message).toHaveTextContaining('6 Digits Number');
+    //     let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+    //     await expect(message).toHaveTextContaining('6 Characters');
 
     // });
 
@@ -172,104 +172,94 @@ describe('Register001', () => {
 
     // });
 
-    it( 'T018 - Register with blank email', async() => {
+    // it( 'T018 - Register with blank email', async() => {
 
-        const blankemail = testdataR.credential;
-        const registerFlow = new Register(blankemail);
-        await registerFlow.RegisterNoEmail();
-        let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
-        await expect(message).toHaveText('Email Is Required');
+    //     const blankemail = testdataR.credential;
+    //     const registerFlow = new Register(blankemail);
+    //     await registerFlow.RegisterNoEmail();
+    //     let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+    //     await expect(message).toHaveText('Email Is Required');
 
-    });
+    // });
 
-    it( 'T019 - Register with wrong email format', async() => {
+    // it( 'T019 - Register with wrong email format', async() => {
 
-        const wrongemail = testdataR.credential;
-        const registerFlow = new Register(wrongemail);
-        await registerFlow.RegisterWrongEmailFormat();
-        let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
-        await expect(message).toHaveText('Invalid Email Format');
+    //     const wrongemail = testdataR.credential;
+    //     const registerFlow = new Register(wrongemail);
+    //     await registerFlow.RegisterWrongEmailFormat();
+    //     let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+    //     await expect(message).toHaveText('Invalid Email Format');
 
-    });
+    // });
 
-    it( 'T020 - Register with existing email', async() => {
+    // it( 'T020 - Register with existing email', async() => {
 
-        const existingemail = testdataR.credential;
-        const registerFlow = new Register(existingemail);
-        await registerFlow.RegisterExistingEmail();
+    //     const existingemail = testdataR.credential;
+    //     const registerFlow = new Register(existingemail);
+    //     await registerFlow.RegisterExistingEmail();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('Email Exist');
+
+    // });
+
+    // it( 'T021 - Register with invalid invitation code', async() => {
+
+    //     const invalidcode = testdataR.credential;
+    //     const registerFlow = new Register(invalidcode);
+    //     await registerFlow.RegisterInvalidCode();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveText('Invalid Invitation Code');
+
+    // });
+
+    // it( 'T024 - Register with blank mobile number', async() => {
+
+    //     const noMobile = testdataR.credential;
+    //     const registerFlow = new Register(noMobile);
+    //     await registerFlow.RegisterNoMobile();
+    //     let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+    //     await expect(message).toHaveTextContaining('Mobile No Is Required');
+
+    // });
+
+    // it( 'T025 - Register with mobile number less than minimum', async() => {
+
+    //     const lessmobile = testdataR.credential;
+    //     const registerFlow = new Register(lessmobile);
+    //     await registerFlow.RegisterLessMobile();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveTextContaining('Minimum Size Is 8');
+
+    // });
+
+    // it( 'T026 - Register with mobile number more than maximum', async() => {
+
+    //     const moremobile = testdataR.credential;
+    //     const registerFlow = new Register(moremobile);
+    //     await registerFlow.RegisterMoreMobile();
+    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    //     await expect(message).toHaveText('Invalid Mobile No');
+    // });
+
+    // // it( 'T027 - Register - automatic fill up the dialling code of phone number follow the country', async() => {
+
+    // //     const existingemail = testdataR.credential;
+    // //     const registerFlow = new Register(existingemail);
+    // //     await registerFlow.RegisterExistingEmail();
+    // //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
+    // //     await expect(message).toHaveTextContaining('Email Exist');
+
+    // // });
+
+    it( 'T028 & T029 - Register without invitation code and register successful', async() => {
+
+        const success = testdataR.credential;
+        const registerFlow = new Register(success);
+        await registerFlow.RegisterSuccess();
         let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-        await expect(message).toHaveTextContaining('Email Exist');
+        await expect(message).toHaveTextContaining('Successful');
 
     });
 
-    // it( 'T021 - Register with existing email', async() => {
-
-    //     const existingemail = testdataR.credential;
-    //     const registerFlow = new Register(existingemail);
-    //     await registerFlow.RegisterExistingEmail();
-    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-    //     await expect(message).toHaveTextContaining('Email Exist');
-
-    // });
-
-    // it( 'T024 - Register with existing email', async() => {
-
-    //     const existingemail = testdataR.credential;
-    //     const registerFlow = new Register(existingemail);
-    //     await registerFlow.RegisterExistingEmail();
-    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-    //     await expect(message).toHaveTextContaining('Email Exist');
-
-    // });
-
-    // it( 'T025 - Register with existing email', async() => {
-
-    //     const existingemail = testdataR.credential;
-    //     const registerFlow = new Register(existingemail);
-    //     await registerFlow.RegisterExistingEmail();
-    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-    //     await expect(message).toHaveTextContaining('Email Exist');
-
-    // });
-
-    // it( 'T026 - Register with existing email', async() => {
-
-    //     const existingemail = testdataR.credential;
-    //     const registerFlow = new Register(existingemail);
-    //     await registerFlow.RegisterExistingEmail();
-    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-    //     await expect(message).toHaveTextContaining('Email Exist');
-
-    // });
-
-    // it( 'T027 - Register with existing email', async() => {
-
-    //     const existingemail = testdataR.credential;
-    //     const registerFlow = new Register(existingemail);
-    //     await registerFlow.RegisterExistingEmail();
-    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-    //     await expect(message).toHaveTextContaining('Email Exist');
-
-    // });
-
-    // it( 'T028 - Register with existing email', async() => {
-
-    //     const existingemail = testdataR.credential;
-    //     const registerFlow = new Register(existingemail);
-    //     await registerFlow.RegisterExistingEmail();
-    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-    //     await expect(message).toHaveTextContaining('Email Exist');
-
-    // });
-
-    // it( 'T029 - Register with existing email', async() => {
-
-    //     const existingemail = testdataR.credential;
-    //     const registerFlow = new Register(existingemail);
-    //     await registerFlow.RegisterExistingEmail();
-    //     let message = await $('[class="MuiAlert-message css-1w0ym84"]');
-    //     await expect(message).toHaveTextContaining('Email Exist');
-
-    // });
 
 });

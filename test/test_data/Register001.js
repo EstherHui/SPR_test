@@ -9,7 +9,7 @@ credentialR.firstName = 'hawaii';
 credentialR.lastName = 'chicken';
 // credentialR.country = 'Malaysia';
 credentialR.mobile = '0175524897';
-credentialR.email = 'hawaii@chicken.com';
+credentialR.email = 'hawaiiKawaii@chicken.com';
 credentialR.lessUsername = 'pie' ;
 credentialR.existingusername = 'candy02';
 credentialR.specialUsername = 'hawaii*10#';
@@ -19,11 +19,15 @@ credentialR.Password4 = 'as123123' ;
 credentialR.Password5 = '123!23123' ;
 credentialR.Password6 = '123123' ;
 credentialR.Password7 = '123123123' ;
-credentialR.secondarypin1 = '123';
-credentialR.secondarypin2 = '123!56';
-credentialR.secondarypin3 = '123a56';
+credentialR.SecondaryPin1 = '123';
+credentialR.SecondaryPin2 = '123!56';
+credentialR.SecondaryPin3 = '123a56';
 credentialR.emailWrong = 'hawaiichickencom';
 credentialR.emailExisting = 'candy02@gmail.com';
+credentialR.invalidcode = 'qbxtsgd';
+credentialR.lessmobile = '123';
+credentialR.moremobile = '12345678910';
+
 const data= {
     
     credential : credentialR

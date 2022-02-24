@@ -96,38 +96,46 @@ export default class Credential {
         this._secondarypin = value;
     }
 
-    get secondarypin1(){
-        return this._secondarypin; 
+    get SecondaryPin1(){
+        return this._SecondaryPin1; 
     }
 
-    set secondarypin1(value){
-        this._secondarypin1 = value;
+    set SecondaryPin1(value){
+        this._SecondaryPin1 = value;
     }
 
-    get secondarypin2(){
-        return this._secondarypin; 
+    get SecondaryPin2(){
+        return this._SecondaryPin2; 
     }
 
-    set secondarypin2(value){
-        this._secondarypin2 = value;
+    set SecondaryPin2(value){
+        this._SecondaryPin2 = value;
     }
 
-    get secondarypin3(){
-        return this._secondarypin; 
+    get SecondaryPin3(){
+        return this._SecondaryPin3; 
     }
 
-    set secondarypin3(value){
-        this._secondarypin = value;
+    set SecondaryPin3(value){
+        this._SecondaryPin3 = value;
     }
 
     get invitationCode(){
         return this._invitationCode;
     }
 
+    set invalidinvitationCode(value){
+        this._invalidinvitationCode = value;
+    }
+
+    get invalidinvitationCode(){
+        return this._invalidinvitationCode;
+    }
+
     set invitationCode(value){
         this._invitationCode = value;
     }
-
+ 
     get firstName(){
         return this._firstName;
     }
@@ -158,6 +166,22 @@ export default class Credential {
 
     set mobile(value){
         this._mobile = value;
+    }
+
+    get lessmobile(){
+        return this._lessmobile;
+    }
+
+    set lessmobile(value){
+        this._lessmobile = value;
+    }
+
+    get moremobile(){
+        return this._moremobile;
+    }
+
+    set moremobile(value){
+        this._moremobile = value;
     }
 
     get email(){

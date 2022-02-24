@@ -22,6 +22,24 @@ export default class Register {
         
     }
 
+    async RegisterSuccess(){
+
+        await RegisterPage.open();
+        await RegisterPage.inputUsername(this._testdata.username);
+        await RegisterPage.inputPassword(this._testdata.password);
+        await RegisterPage.inputTransactionPass(this._testdata.secondarypin);
+        await RegisterPage.inputInvitationCode(this._testdata.invitationCode);
+        await RegisterPage.inputFirstName(this._testdata.firstName);
+        await RegisterPage.inputLastName(this._testdata.lastName);
+        //await RegisterPagw.inputCountry(this._testdate.country);
+        await RegisterPage.inputMobileNum(this._testdata.mobile);
+        await RegisterPage.inputEmail(this._testdata.email);
+        await RegisterPage.clickSignUpBTN();
+
+        return this;
+
+    }
+
     async RegisterNoUsername(){
 
         await RegisterPage.open();
@@ -240,7 +258,7 @@ export default class Register {
         await RegisterPage.open();
         await RegisterPage.inputUsername(this._testdata.username);
         await RegisterPage.inputPassword(this._testdata.password);
-        await RegisterPage.inputTransactionPass(this._testdata.secondarypin1);
+        await RegisterPage.inputTransactionPass(this._testdata.SecondaryPin1);
         await RegisterPage.inputInvitationCode(this._testdata.invitationCode);
         await RegisterPage.inputFirstName(this._testdata.firstName);
         await RegisterPage.inputLastName(this._testdata.lastName);
@@ -258,7 +276,7 @@ export default class Register {
         await RegisterPage.open();
         await RegisterPage.inputUsername(this._testdata.username);
         await RegisterPage.inputPassword(this._testdata.password);
-        await RegisterPage.inputTransactionPass(this._testdata.secondarypin2);
+        await RegisterPage.inputTransactionPass(this._testdata.SecondaryPin2);
         await RegisterPage.inputInvitationCode(this._testdata.invitationCode);
         await RegisterPage.inputFirstName(this._testdata.firstName);
         await RegisterPage.inputLastName(this._testdata.lastName);
@@ -276,7 +294,7 @@ export default class Register {
         await RegisterPage.open();
         await RegisterPage.inputUsername(this._testdata.username);
         await RegisterPage.inputPassword(this._testdata.password);
-        await RegisterPage.inputTransactionPass(this._testdata.secondarypin3);
+        await RegisterPage.inputTransactionPass(this._testdata.SecondaryPin3);
         await RegisterPage.inputInvitationCode(this._testdata.invitationCode);
         await RegisterPage.inputFirstName(this._testdata.firstName);
         await RegisterPage.inputLastName(this._testdata.lastName);
@@ -342,6 +360,76 @@ export default class Register {
 
     }
 
+    async RegisterInvalidCode(){
+
+        await RegisterPage.open();
+        await RegisterPage.inputUsername(this._testdata.username);
+        await RegisterPage.inputPassword(this._testdata.password);
+        await RegisterPage.inputTransactionPass(this._testdata.secondarypin);
+        await RegisterPage.inputInvitationCode(this._testdata.invalidcode);
+        await RegisterPage.inputFirstName(this._testdata.firstName);
+        await RegisterPage.inputLastName(this._testdata.lastName);
+        //await RegisterPagw.inputCountry(this._testdate.country);
+        await RegisterPage.inputMobileNum(this._testdata.mobile);
+        await RegisterPage.inputEmail(this._testdata.email);
+        await RegisterPage.clickSignUpBTN();
+
+        return this;
+
+    }
+
+    async RegisterNoMobile(){
+
+        await RegisterPage.open();
+        await RegisterPage.inputUsername(this._testdata.username);
+        await RegisterPage.inputPassword(this._testdata.password);
+        await RegisterPage.inputTransactionPass(this._testdata.secondarypin);
+        await RegisterPage.inputInvitationCode(this._testdata.invitationCode);
+        await RegisterPage.inputFirstName(this._testdata.firstName);
+        await RegisterPage.inputLastName(this._testdata.lastName);
+        //await RegisterPagw.inputCountry(this._testdate.country);
+        await RegisterPage.inputEmail(this._testdata.email);
+        await RegisterPage.clickSignUpBTN();
+
+        return this;
+
+    }
+
+    async RegisterLessMobile(){
+
+        await RegisterPage.open();
+        await RegisterPage.inputUsername(this._testdata.username);
+        await RegisterPage.inputPassword(this._testdata.password);
+        await RegisterPage.inputTransactionPass(this._testdata.secondarypin);
+        await RegisterPage.inputInvitationCode(this._testdata.invitationCode);
+        await RegisterPage.inputFirstName(this._testdata.firstName);
+        await RegisterPage.inputLastName(this._testdata.lastName);
+        //await RegisterPagw.inputCountry(this._testdate.country);
+        await RegisterPage.inputMobileNum(this._testdata.lessmobile);
+        await RegisterPage.inputEmail(this._testdata.email);
+        await RegisterPage.clickSignUpBTN();
+
+        return this;
+
+    }
+
+    async RegisterMoreMobile(){
+
+        await RegisterPage.open();
+        await RegisterPage.inputUsername(this._testdata.username);
+        await RegisterPage.inputPassword(this._testdata.password);
+        await RegisterPage.inputTransactionPass(this._testdata.secondarypin);
+        await RegisterPage.inputInvitationCode(this._testdata.invitationCode);
+        await RegisterPage.inputFirstName(this._testdata.firstName);
+        await RegisterPage.inputLastName(this._testdata.lastName);
+        //await RegisterPagw.inputCountry(this._testdate.country);
+        await RegisterPage.inputMobileNum(this._testdata.moremobile);
+        await RegisterPage.inputEmail(this._testdata.email);
+        await RegisterPage.clickSignUpBTN();
+
+        return this;
+
+    }
 
 
 }
