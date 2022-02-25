@@ -11,7 +11,7 @@
 //         await LoginPage.open(); 
 //         await LoginPage.VerifyLogin();
 
-//     })
+//     });
 
 //     it('T002 - Login with blank all field', async () => {
         
