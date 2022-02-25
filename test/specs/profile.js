@@ -4,10 +4,10 @@ import testdata from '../test_data/Profile001';
 describe( 'Profile001 - ', () => {
     // it("T001 - Profile Display", async() => {
        
-        // const validacc= testdata.credential;
-        // const profileflow = new Profile(validacc);
-        // await profileflow.login();
-        // await profileflow.ProfileDisplay()
+    //     const validacc= testdata.credential;
+    //     const profileflow = new Profile(validacc);
+    //     await profileflow.login();
+    //     await profileflow.ProfileDisplay()
         
     //  });
 
@@ -22,18 +22,29 @@ describe( 'Profile001 - ', () => {
 
     // });
 
-    it("T003 -  update information success", async() =>{
+    // it("T003 -  update information success", async() =>{
 
-        const update= testdata.credential;
-        const profileflow = new Profile(update);
+    //     const update= testdata.credential;
+    //     const profileflow = new Profile(update);
+    //     await profileflow.login();
+    //     await profileflow.UpdateSuccess();
+    //     let message = await $('[class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAlert-root MuiAlert-standardSuccess MuiAlert-standard css-1rc8o7p"]');
+    //     await expect(message).toHaveTextContaining('Successfully');
+
+    // });
+
+});
+
+describe( 'Profile002 - ', () => {
+    it("T001 - Profile Display", async() => {
+       
+        const validacc= testdata.credential;
+        const profileflow = new Profile(validacc);
         await profileflow.login();
-        await profileflow.UpdateSuccess();
-        let message = await $('[class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAlert-root MuiAlert-standardSuccess MuiAlert-standard css-1rc8o7p"]');
-        await expect(message).toHaveTextContaining('Successfully');
-
-    });
-
-    
+        await profileflow.ProfileDisplay()
+        
+     });
+          
 
 
 

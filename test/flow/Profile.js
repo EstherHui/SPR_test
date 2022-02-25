@@ -49,4 +49,12 @@ export default class Profile{
         await ProfilePage.inputTradingPass06();
 
     }
+
+    async ChangePasseDisplay(){
+
+        await ProfilePage.clickProfileBTN();
+        await (await ProfilePage.ChangePasswordBTN).click();
+        
+
+    }
 }
