@@ -28,7 +28,6 @@ export default class Register {
         await RegisterPage.inputUsername(this._testdata.username);
         await RegisterPage.inputPassword(this._testdata.password);
         await RegisterPage.inputTransactionPass(this._testdata.secondarypin);
-        await RegisterPage.inputInvitationCode(this._testdata.invitationCode);
         await RegisterPage.inputFirstName(this._testdata.firstName);
         await RegisterPage.inputLastName(this._testdata.lastName);
         //await RegisterPagw.inputCountry(this._testdate.country);
