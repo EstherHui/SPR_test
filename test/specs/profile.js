@@ -16,6 +16,8 @@ describe( 'Profile001 - ', () => {
 
         const blankupdate= testdata.credential;
         const profileflow = new Profile(blankupdate);
+        await profileflow.login();
+        await profileflow.BlankUpdate();
 
     });
 

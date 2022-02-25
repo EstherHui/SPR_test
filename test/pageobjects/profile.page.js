@@ -2,13 +2,13 @@ import Page from './page';
 
 class ProfilePage extends Page{
 
-    //get Username(){ return $('[class = "MuiTypography-root MuiTypography-body1 css-yn1ps6"]');   }
+    get Username(){ return $('.MuiTypography-root MuiTypography-body1 css-yn1ps6');   }
     get FirstName(){ return $('input[name="first_name"]');  }
-    get LastName(){ return $('input [name="last_name"]');  }
-    get Email(){ return $('input [name="email"]'); }
+    get LastName(){ return $('input[name="last_name"]');  }
+    get Email(){ return $('input[name="email"]'); }
     get Country(){ return $('#mui-component-select-country_code'); }
-    get Mobile(){ return $('input [name="mobile_no"]'); }
-    get ReferralID(){ return $('input [name="referral_code"]'); }
+    get Mobile(){ return $('input[name="mobile_no"]'); }
+    get ReferralID(){ return $('input[name="referral_code"]'); }
     get ReferralTree(){ return $('class="MuiTreeItem-label"'); }
     get UpdateBTN(){ return $('button[type="submit"]'); }
     get ChangePasswordBTN(){ return $('.MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1kx2vbf = Change Login Password'); }
@@ -52,7 +52,7 @@ class ProfilePage extends Page{
 
     async VerifyProfile(){
 
-        //await expect (await (await (this.Username)).isDisplayed()).toBeDisplayed();
+        await expect (await (await (this.Username)).isDisplayed()).toBeDisplayed();
         await expect (await (await (this.FirstName)).isDisplayed()).toBeDisplayed();
         await expect (await (await (this.LastName)).isDisplayed()).toBeDisplayed();
         await expect (await (await (this.Email)).isDisplayed()).toBeDisplayed();
@@ -67,6 +67,8 @@ class ProfilePage extends Page{
 
         return this;
     }
+
+    
 
 
     open() {

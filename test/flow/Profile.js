@@ -24,4 +24,13 @@ export default class Profile{
         await ProfilePage.VerifyProfile();
 
     }
+
+    async BlankUpdate(){
+
+        await ProfilePage.clickProfileBTN();
+        await (await ProfilePage.Mobile).click();
+        await (await ProfilePage.Mobile).clearValue();
+        await (await ProfilePage.UpdateBTN).click();
+        
+    }
 }
