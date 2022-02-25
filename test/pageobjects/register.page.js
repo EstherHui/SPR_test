@@ -11,8 +11,16 @@ class RegisterPage extends Page {
     get MobileNum(){return $('input[name="mobile_no"]'); }
     get Email(){ return $('input[name="email"]'); }
     get SignUpBTN() { return $('button[type="submit"]'); }
-    // get Country() { return $('#mui-component-select-country_code'); }
-    
+
+    get Country() { return $('#mui-component-select-country_code'); }
+    get CountryParent() { return $('ul[class="MuiList-root MuiList-padding MuiMenu-list css-r8u8y9"]');  }
+
+    // get CountryChild() {
+
+    //     return this.CountryParent.$$('li');
+    // }
+
+
     open() {
         return super.open('register');
     }
@@ -63,13 +71,16 @@ class RegisterPage extends Page {
         await (await this.Email).setValue(email);
         return this;
     }
-    
-    // async clickCountryList(country){
-    //     await (await this.Country).click();
 
-    //     //const countryChoose = (await $('ul')).$(..)）
-    //     return this;
-    // }
+    async selectCountry(country){
+
+        await (await this.Country).click();
+        const select = await this.CountryParent;
+        await select.selectByAttribute('data-value', "SG");
+
+        return this;
+
+    }
 
     async clickSignUpBTN(){
         await (await this.SignUpBTN).click();

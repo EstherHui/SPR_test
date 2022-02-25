@@ -1,15 +1,15 @@
 import Credential from "../entity/credentialRegister";
 
 const credentialR = new Credential();
-credentialR.username = 'hawaii04';
+credentialR.username = 'hawaii05';
 credentialR.password = 'As123!23';
 credentialR.secondarypin = '123123';
 credentialR.invitationCode = 'candy03';
 credentialR.firstName = 'hawaii';
 credentialR.lastName = 'CCchicken';
-// credentialR.country = 'Malaysia';
-credentialR.mobile = '174852211';
-credentialR.email = 'hawaii04@chicken.com';
+credentialR.country = 'SG';
+credentialR.mobile = '174852210';
+credentialR.email = 'hawaii05@chicken.com';
 credentialR.lessUsername = 'pie' ;
 credentialR.existingusername = 'candy02';
 credentialR.specialUsername = 'hawaii*10#';
