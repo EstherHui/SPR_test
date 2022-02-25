@@ -1,5 +1,4 @@
 import Profile from '../flow/Profile';
-import Pofile from '../flow/Profile';
 import testdata from '../test_data/Profile001';
 
 describe( 'Profile001 - ', () => {
@@ -12,14 +11,30 @@ describe( 'Profile001 - ', () => {
         
     //  });
 
-    it("T002 -  cannot update information when leave the required field blank", async() =>{
+    // it("T002 -  cannot update information when leave the required field blank", async() =>{
 
-        const blankupdate= testdata.credential;
-        const profileflow = new Profile(blankupdate);
+    //     const blankupdate= testdata.credential;
+    //     const profileflow = new Profile(blankupdate);
+    //     await profileflow.login();
+    //     await profileflow.BlankUpdate();
+    //     let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+    //     await expect(message).toHaveText('Mobile No Is Required');
+
+    // });
+
+    it("T003 -  update information success", async() =>{
+
+        const update= testdata.credential;
+        const profileflow = new Profile(update);
         await profileflow.login();
-        await profileflow.BlankUpdate();
+        await profileflow.UpdateSuccess();
+        let message = await $('[class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAlert-root MuiAlert-standardSuccess MuiAlert-standard css-1rc8o7p"]');
+        await expect(message).toHaveTextContaining('Successfully');
 
     });
+
+    
+
 
 
 });

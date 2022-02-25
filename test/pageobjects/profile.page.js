@@ -15,6 +15,13 @@ class ProfilePage extends Page{
     get ChangeSecondaryPassBTN(){ return $('.MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1kx2vbf = Change Transaction Password'); }
     get SignOutBtn(){ return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1qqmpvb"]');   }
     get ProfileBTN(){ return $('[class="MuiBox-root css-34k09d"]');    }
+    get TradingPass01(){ return $('input[aria-label="Please enter verification code. Digit 1"]'); }
+    get TradingPass02(){ return $('input[aria-label="Digit 2"]'); }
+    get TradingPass03(){ return $('input[aria-label="Digit 3"]'); }
+    get TradingPass04(){ return $('input[aria-label="Digit 4"]'); }
+    get TradingPass05(){ return $('input[aria-label="Digit 5"]'); }
+    get TradingPass06(){ return $('input[aria-label="Digit 6"]'); }
+
 
     get UsernameTXB() {
         return $('input[name="username"]');
@@ -49,7 +56,41 @@ class ProfilePage extends Page{
         return this;
     }
 
+    async inputTradingPass01(secondary01){
+        await (await (this.TradingPass01)).setValue(secondary01);
+        return this;
+    }
 
+    async inputTradingPass02(secondary02){
+        await (await (this.TradingPass02)).setValue(secondary02);
+        return this;
+    }
+
+    async inputTradingPass03(secondary03){
+        await (await (this.TradingPass03)).setValue(secondary03);
+        return this;
+    }
+
+    async inputTradingPass04(secondary04){
+        await (await (this.TradingPass04)).setValue(secondary04);
+        return this;
+    }
+
+    async inputTradingPass05(secondary05){
+        await (await (this.TradingPass05)).setValue(secondary05);
+        return this;
+    }
+
+    async inputTradingPass06(secondary06){
+        await (await (this.TradingPass06)).setValue(secondary06);
+        return this;
+    }
+
+    async inputMobile(newMobile){
+        await(await (this.Mobile)).setValue(newMobile);
+        return this;
+    }
+    
     async VerifyProfile(){
 
         await expect (await (await (this.Username)).isDisplayed()).toBeDisplayed();

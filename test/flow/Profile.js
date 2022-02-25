@@ -31,6 +31,22 @@ export default class Profile{
         await (await ProfilePage.Mobile).click();
         await (await ProfilePage.Mobile).clearValue();
         await (await ProfilePage.UpdateBTN).click();
-        
+
+    }
+
+    async UpdateSuccess(){
+
+        await ProfilePage.clickProfileBTN();
+        await (await ProfilePage.Mobile).click();
+        await (await ProfilePage.Mobile).clearValue();
+        await ProfilePage.inputMobile();
+        await (await ProfilePage.UpdateBTN).click();
+        await ProfilePage.inputTradingPass01();
+        await ProfilePage.inputTradingPass02();
+        await ProfilePage.inputTradingPass03();
+        await ProfilePage.inputTradingPass04();
+        await ProfilePage.inputTradingPass05();
+        await ProfilePage.inputTradingPass06();
+
     }
 }
