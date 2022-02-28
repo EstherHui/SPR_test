@@ -433,16 +433,8 @@ export default class Register {
     async RegisterCountry(){
 
         await RegisterPage.open();
-        await RegisterPage.inputUsername(this._testdata.username);
-        await RegisterPage.inputPassword(this._testdata.password);
-        await RegisterPage.inputTransactionPass(this._testdata.secondarypin);
-        await RegisterPage.inputInvitationCode(this._testdata.invitationCode);
-        await RegisterPage.inputFirstName(this._testdata.firstName);
-        await RegisterPage.inputLastName(this._testdata.lastName);
-        await RegisterPage.selectCountry(this._testdate.country);
-        await RegisterPage.inputMobileNum(this._testdata.moremobile);
-        await RegisterPage.inputEmail(this._testdata.email);
-       //await RegisterPage.clickSignUpBTN();
+        await RegisterPage.selectCountry();
+        expect (await (await RegisterPage.MobileCode).getText()).toEqual('+86');
 
         return this;
 

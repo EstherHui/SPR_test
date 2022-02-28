@@ -1,5 +1,5 @@
-// import Register from '../flow/Register';
-// import testdataR from '../test_data/Register001';
+import Register from '../flow/Register';
+import testdataR from '../test_data/Register001';
 import RegisterPage from '../pageobjects/register.page';
 
 describe('Register001', () => {
@@ -264,8 +264,9 @@ describe('Register001', () => {
 
     it( 'test country', async() => {
 
-        await RegisterPage.open();
-        await RegisterPage.selectCountry();
+        const test = testdataR.credential;
+        const registerFlow = new Register(test);
+        await registerFlow.RegisterCountry();
         await browser.pause(10000);
 
     

@@ -12,8 +12,10 @@ class RegisterPage extends Page {
     get Email(){ return $('input[name="email"]'); }
     get SignUpBTN() { return $('button[type="submit"]'); }
 
-    get Country() { return $('#mui-component-select-country_code'); }
+    get Country() { return $('#mui-component-select-country_code'); }    
     get CountryParent() { return $('ul[class="MuiList-root MuiList-padding MuiMenu-list css-r8u8y9"]');  }
+    get CountrySelect() { return $('#menu-country_code > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiMenu-paper.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.css-gc7yjw > ul > li:nth-child(3)')}
+    get MobileCode(){ return $('#root > div > div.MuiBox-root.css-oa138a > div > div > div > form > div > div:nth-child(9) > div > div > div > div')}
 
     // get CountryChild() {
 
@@ -72,12 +74,12 @@ class RegisterPage extends Page {
         return this;
     }
 
-    async selectCountry(country){
+    async selectCountry(){
 
         await (await this.Country).click();
-        const select = await this.CountryParent;
-        await select.selectByAttribute('data-value', "SG");
-
+        await (await this.CountrySelect).click();
+        //const select = await this.CountryParent;
+        // await (await this.CountryParent).selectByVisibleText('China');
         return this;
 
     }
