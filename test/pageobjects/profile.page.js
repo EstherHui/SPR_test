@@ -2,17 +2,17 @@ import Page from './page';
 
 class ProfilePage extends Page{
 
-    get Username(){ return $('.MuiTypography-root MuiTypography-body1 css-yn1ps6');   }
+    get UsernamePro(){ return $('[class="MuiTypography-root MuiTypography-body1 css-yn1ps6"]');   }
     get FirstName(){ return $('input[name="first_name"]');  }
     get LastName(){ return $('input[name="last_name"]');  }
     get Email(){ return $('input[name="email"]'); }
     get Country(){ return $('#mui-component-select-country_code'); }
     get Mobile(){ return $('input[name="mobile_no"]'); }
     get ReferralID(){ return $('input[name="referral_code"]'); }
-    get ReferralTree(){ return $('class="MuiTreeItem-label"'); }
+    get ReferralTree(){ return $('[class="MuiTreeItem-label"]'); }
     get UpdateBTN(){ return $('button[type="submit"]'); }
-    get ChangePasswordBTN(){ return $('.MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1kx2vbf = Change Login Password'); }
-    get ChangeSecondaryPassBTN(){ return $('.MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1kx2vbf = Change Transaction Password'); }
+    get ChangePasswordBTN(){ return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1kx2vbf"]'); }
+    get ChangeSecondaryPassBTN(){ return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1kx2vbf"]'); }
     get SignOutBtn(){ return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1qqmpvb"]');   }
     get ProfileBTN(){ return $('[class="MuiBox-root css-34k09d"]');    }
     get TradingPass01(){ return $('input[aria-label="Please enter verification code. Digit 1"]'); }
@@ -93,21 +93,49 @@ class ProfilePage extends Page{
     
     async VerifyProfile(){
 
-        await expect (await (await (this.Username)).isDisplayed()).toBeDisplayed();
-        await expect (await (await (this.FirstName)).isDisplayed()).toBeDisplayed();
-        await expect (await (await (this.LastName)).isDisplayed()).toBeDisplayed();
-        await expect (await (await (this.Email)).isDisplayed()).toBeDisplayed();
-        await expect (await (await (this.Country)).isDisplayed()).toBeDisplayed();
-        await expect (await (await (this.Mobile)).isDisplayed()).toBeDisplayed();
-        await expect (await (await (this.ReferralID)).isDisplayed()).toBeDisplayed();
-        await expect (await (await (this.ReferralTree)).isDisplayed()).toBeDisplayed();
-        await expect (await (await (this.UpdateBTN)).isDisplayed()).toBeDisplayed();
-        await expect (await (await (this.ChangePasswordBTN)).isDisplayed()).toBeDisplayed();
-        await expect (await (await (this.ChangeSecondaryPassBTN)).isDisplayed()).toBeDisplayed();
-        await expect (await (await (this.SignOutBtn)).isDisplayed()).toBeDisplayed();
+        await expect (await (this.UsernamePro)).toBeDisplayed();
+        await expect (await (this.FirstName)).toBeDisplayed();
+        await expect (await (this.LastName)).toBeDisplayed();
+        await expect (await (this.Email)).toBeDisplayed();
+        await expect (await (this.Country)).toBeDisplayed();
+        await expect (await (this.Mobile)).toBeDisplayed();
+        await expect (await (this.ReferralID)).toBeDisplayed();
+        await expect (await (this.ReferralTree)).toBeDisplayed();
+        await expect (await (this.UpdateBTN)).toBeDisplayed();
+        await expect (await (this.ChangePasswordBTN)).toBeDisplayed();
+        await expect (await (this.ChangeSecondaryPassBTN)).toBeDisplayed();
+        await expect (await (this.SignOutBtn)).toBeDisplayed();
 
         return this;
     }
+
+    get CurrentPassword(){ return $('input[name="current_password"]'); }
+    get NewPassTXB(){ return $('input[name="password"]');  }
+    get ConfirmPassword(){ return $('input[name="confirm_password"]'); }
+    get ChangeSubmitBTN(){ return $('button[type="submit"]');  }
+
+    async clickChangeLoginPass(){
+        await(await (this.ChangePasswordBTN)).click();
+        return this;
+     }
+
+    async VerifyChangeLoginPass(){
+       
+        await expect (await (this.CurrentPassword)).toBeDisplayed();
+        await expect  (await (this.NewPassTXB)).toBeDisplayed();
+        await expect (await (this.ConfirmPassword)).toBeDisplayed();
+        await expect (await (this.ChangeSubmitBTN)).toBeDisplayed();
+
+        return this;
+
+    }
+
+    async blankChangeLoginPass(){
+        
+        await (await this.ChangeSubmitBTN).click();
+
+    }
+
 
     
 

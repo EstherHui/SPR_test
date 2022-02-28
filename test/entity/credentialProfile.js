@@ -54,5 +54,11 @@ export default class Credential{
     set newMobile(value){
         this._newMobile = value;
     }
+    get newpassword(){
+        return this._newpassword;
+    }
+    set newpassword(value){
+        this._newpassword = value;
+    }
 
 }
