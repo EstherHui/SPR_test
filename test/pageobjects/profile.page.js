@@ -90,6 +90,21 @@ class ProfilePage extends Page{
         await(await (this.Mobile)).setValue(newMobile);
         return this;
     }
+
+    async clickMobile(){
+        await (await this.Mobile).click();
+        return this;
+    }
+
+    async doubleClickMobile(){
+        await (await this.Mobile).doubleClick();
+        return this;
+    }
+
+    async clickUpdateBTN(){
+        await (await this.UpdateBTN).click();
+        return this;
+    }
     
     async VerifyProfile(){
 
@@ -112,12 +127,32 @@ class ProfilePage extends Page{
     get CurrentPassword(){ return $('input[name="current_password"]'); }
     get NewPassTXB(){ return $('input[name="password"]');  }
     get ConfirmPassword(){ return $('input[name="confirm_password"]'); }
-    get ChangeSubmitBTN(){ return $('button[type="submit"]');  }
+    get ChangeSubmitBTN(){ return $('[class="MuiButtonBase-root css-j6xqws"]');  }
 
     async clickChangeLoginPass(){
         await(await (this.ChangePasswordBTN)).click();
         return this;
-     }
+    }
+
+    async clickChangeSubmitBTN(){
+        await (await this.ChangeSubmitBTN).click();
+        return this;
+    }
+
+    async inputCurrentPass(currentpass){
+        await (await (this.CurrentPassword)).setValue(currentpass);
+        return this;
+    }
+    
+    async inputNewPassTXB(newpass){
+        await (await (this.NewPassTXB)).setValue(newpass);
+        return this;
+    }
+
+    async inputConfirmPass(confirmpass){
+        await (await (this.ConfirmPassword)).setValue(confirmpass);
+        return this;
+    }
 
     async VerifyChangeLoginPass(){
        
@@ -129,14 +164,6 @@ class ProfilePage extends Page{
         return this;
 
     }
-
-    async blankChangeLoginPass(){
-        
-        await (await this.ChangeSubmitBTN).click();
-
-    }
-
-
     
 
 

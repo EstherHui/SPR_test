@@ -60,5 +60,17 @@ export default class Credential{
     set newpassword(value){
         this._newpassword = value;
     }
+    get currentpassword(){
+        return this._currentpassword;
+    }
+    set currentpassword(value){
+        this._currentpassword = value;
+    }
+    get confirmpassword(){
+        return this._confirmpassword;
+    }
+    set confirmpassword(value){
+        this._confirmpassword = value;
+    }
 
 }

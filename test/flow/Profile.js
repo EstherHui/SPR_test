@@ -1,4 +1,5 @@
 import ProfilePage from '../pageobjects/profile.page';
+import { strict as assert } from 'assert'
 
 export default class Profile{
 
@@ -28,32 +29,37 @@ export default class Profile{
     async BlankUpdate(){
 
         await ProfilePage.clickProfileBTN();
-        await (await ProfilePage.Mobile).click();
-        await (await ProfilePage.Mobile).clearValue();
-        await browser.pause(10000);
-        await (await ProfilePage.UpdateBTN).click();
-        await ProfilePage.inputTradingPass01();
-        await ProfilePage.inputTradingPass02();
-        await ProfilePage.inputTradingPass03();
-        await ProfilePage.inputTradingPass04();
-        await ProfilePage.inputTradingPass05();
-        await ProfilePage.inputTradingPass06();
+        await ProfilePage.clickMobile()
+        await browser.keys("Delete");
+        await ProfilePage.clickUpdateBTN();
 
     }
 
     async UpdateSuccess(){
 
+         //temporary solution
         await ProfilePage.clickProfileBTN();
-        await (await ProfilePage.Mobile).click();
-        await (await ProfilePage.Mobile).clearValue();
-        await ProfilePage.inputMobile();
+        await ProfilePage.doubleClickMobile()
+        //await (await ProfilePage.Mobile).clearValue();  clearValue() <= this method has been ignored
+        await browser.keys("Delete");
+        await browser.keys("187754628");
+        // await ProfilePage.clickMobile()
+        // let value = await (await ProfilePage.Mobile).getValue();
+        // await assert(value === '');
+        //await ProfilePage.inputMobile();
         await (await ProfilePage.UpdateBTN).click();
         await ProfilePage.inputTradingPass01();
+        await browser.keys('1');
         await ProfilePage.inputTradingPass02();
+        await browser.keys('2');
         await ProfilePage.inputTradingPass03();
+        await browser.keys('3');
         await ProfilePage.inputTradingPass04();
+        await browser.keys('4');
         await ProfilePage.inputTradingPass05();
+        await browser.keys('5');
         await ProfilePage.inputTradingPass06();
+        await browser.keys('6');
 
     }
 
@@ -76,7 +82,19 @@ export default class Profile{
 
     async blankChangeLoginPass(){
         
-        await ProfilePage.blankChangeLoginPass();
+        await ProfilePage.clickProfileBTN();
+        await ProfilePage.clickChangeLoginPass();
+        await ProfilePage.clickChangeSubmitBTN();
         
+    }
+
+    async ChangeLoginPassNoCurrent(){
+
+        await ProfilePage.clickProfileBTN();
+        await ProfilePage.clickChangeLoginPass();
+        await ProfilePage.inputNewPassTXB();
+        await ProfilePage.inputConfirmPass();
+        await ProfilePage.clickChangeSubmitBTN();
+
     }
 }
