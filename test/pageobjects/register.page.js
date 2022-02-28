@@ -14,7 +14,8 @@ class RegisterPage extends Page {
 
     get Country() { return $('#mui-component-select-country_code'); }    
     get CountryParent() { return $('ul[class="MuiList-root MuiList-padding MuiMenu-list css-r8u8y9"]');  }
-    get CountrySelect() { return $('#menu-country_code > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiMenu-paper.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.css-gc7yjw > ul > li:nth-child(3)')}
+    get CountrySelect() { return $("//div[@id='menu-country_code']//ul[@role='listbox']/li[3]//span[.='China']"); }
+    //get CountrySelect() { return $('#menu-country_code > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiMenu-paper.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.css-gc7yjw > ul > li:nth-child(3)')}
     get MobileCode(){ return $('#root > div > div.MuiBox-root.css-oa138a > div > div > div > form > div > div:nth-child(9) > div > div > div > div')}
 
     // get CountryChild() {
