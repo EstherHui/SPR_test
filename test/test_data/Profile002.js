@@ -1,16 +1,16 @@
 import Credential from '../entity/credentialProfile';
 
-const credentialPro = new Credential();
-credentialPro.username = 'candy';
-credentialPro.password = 'Qwerty!23';
-credentialPro.currentpassword = credentialPro.password;
-credentialPro.newpassword = 'As!23123';
-credentialPro.confirmpassword = credentialPro.newpassword;
+const credential = new Credential();
+credential.username = 'candy';
+credential.password = 'Qwerty!23' ;
+credential.currentpassword = credential.password ;
+credential.newpassword = 'As!23123';
+credential.confirmpassword =credential.newpassword;
 
 
 const data= {
     
-    credential : credentialPro
+    credential : credential
 }
 
 export default data;

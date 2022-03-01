@@ -37,29 +37,22 @@ export default class Profile{
 
     async UpdateSuccess(){
 
-         //temporary solution
         await ProfilePage.clickProfileBTN();
         await ProfilePage.doubleClickMobile()
         //await (await ProfilePage.Mobile).clearValue();  clearValue() <= this method has been ignored
         await browser.keys("Delete");
-        await browser.keys("187754628");
+        //await browser.keys("187754628");
         // await ProfilePage.clickMobile()
         // let value = await (await ProfilePage.Mobile).getValue();
         // await assert(value === '');
-        //await ProfilePage.inputMobile();
+        await ProfilePage.inputMobile(this._testdata.newMobile);
         await (await ProfilePage.UpdateBTN).click();
-        await ProfilePage.inputTradingPass01();
-        await browser.keys('1');
-        await ProfilePage.inputTradingPass02();
-        await browser.keys('2');
-        await ProfilePage.inputTradingPass03();
-        await browser.keys('3');
-        await ProfilePage.inputTradingPass04();
-        await browser.keys('4');
-        await ProfilePage.inputTradingPass05();
-        await browser.keys('5');
-        await ProfilePage.inputTradingPass06();
-        await browser.keys('6');
+        await ProfilePage.inputTradingPass01(this._testdata.secondary01);
+        await ProfilePage.inputTradingPass02(this._testdata.secondary02);
+        await ProfilePage.inputTradingPass03(this._testdata.secondary03);
+        await ProfilePage.inputTradingPass04(this._testdata.secondary04);
+        await ProfilePage.inputTradingPass05(this._testdata.secondary05);
+        await ProfilePage.inputTradingPass06(this._testdata.secondary06);
 
     }
 
@@ -90,11 +83,42 @@ export default class Profile{
 
     async ChangeLoginPassNoCurrent(){
 
-        await ProfilePage.clickProfileBTN();
-        await ProfilePage.clickChangeLoginPass();
-        await ProfilePage.inputNewPassTXB();
-        await ProfilePage.inputConfirmPass();
+        //await ProfilePage.clickProfileBTN();
+        //await ProfilePage.clickChangeLoginPass();
+        await ProfilePage.inputNewPasswordTXB(this._testdata.newpassword);
+        await ProfilePage.inputConfirmPass(this._testdata.confirmpassword);
+        await ProfilePage.clickChangeSubmitBTN();
+        await (await ProfilePage.NewPassTXB).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.ConfirmPassword).doubleClick();
+        await browser.keys('Delete');
+
+    }
+
+    async ChangeLoginPassNoNew(){
+
+        //await ProfilePage.clickProfileBTN();
+        //await ProfilePage.clickChangeLoginPass();        
+        await ProfilePage.inputCurrentPass(this._testdata.currentpassword);
+        await ProfilePage.inputConfirmPass(this._testdata.confirmpassword);
+        await ProfilePage.clickChangeSubmitBTN();
+        await (await ProfilePage.CurrentPassword).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.ConfirmPassword).doubleClick();
+        await browser.keys('Delete');
+       
+
+
+    }
+
+    async ChangeLoginPassNoConfirm(){
+
+        //await ProfilePage.clickProfileBTN();
+        //await ProfilePage.clickChangeLoginPass();
+        await ProfilePage.inputCurrentPass(this._testdata.currentpassword);
+        await ProfilePage.inputNewPasswordTXB(this._testdata.newpassword);
         await ProfilePage.clickChangeSubmitBTN();
 
     }
+
 }

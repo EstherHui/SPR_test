@@ -40,7 +40,7 @@ export default class Credential{
         return this._secondary05;
     }
     set secondary05(value){
-        this._secondary01 = value;
+        this._secondary05 = value;
     }
     get secondary06(){
         return this._secondary06;

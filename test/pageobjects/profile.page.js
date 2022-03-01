@@ -139,18 +139,19 @@ class ProfilePage extends Page{
         return this;
     }
 
-    async inputCurrentPass(currentpass){
-        await (await (this.CurrentPassword)).setValue(currentpass);
-        return this;
-    }
-    
-    async inputNewPassTXB(newpass){
-        await (await (this.NewPassTXB)).setValue(newpass);
+    async inputCurrentPass(currentpassword){
+        await (await this.CurrentPassword).setValue(currentpassword);
         return this;
     }
 
-    async inputConfirmPass(confirmpass){
-        await (await (this.ConfirmPassword)).setValue(confirmpass);
+    async inputNewPasswordTXB(password){
+
+        await (await this.NewPassTXB).setValue(password);
+        return this;
+    }
+
+    async inputConfirmPass(confirmpassword){
+        await (await this.ConfirmPassword).setValue(confirmpassword);
         return this;
     }
 
