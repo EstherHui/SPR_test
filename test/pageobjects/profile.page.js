@@ -14,7 +14,7 @@ class ProfilePage extends Page{
     get ChangePasswordBTN(){ return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1kx2vbf"]'); }
     get ChangeSecondaryPassBTN(){ return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1kx2vbf"]'); }
     get SignOutBtn(){ return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1qqmpvb"]');   }
-    get ProfileBTN(){ return $('[class="MuiBox-root css-34k09d"]');    }
+    get ProfileBTN(){ return $('[class="MuiBox-root css-hxya6w"]');    }
     get TradingPass01(){ return $('input[aria-label="Please enter verification code. Digit 1"]'); }
     get TradingPass02(){ return $('input[aria-label="Digit 2"]'); }
     get TradingPass03(){ return $('input[aria-label="Digit 3"]'); }

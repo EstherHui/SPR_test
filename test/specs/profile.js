@@ -78,15 +78,85 @@ describe( 'Profile002 - ', () => {
 
      });
 
-    //  it("T008 - Change Login Password with blank confirm password ", async() => {
+     it("T008 - Change Login Password with blank confirm password ", async() => {
 
-    //     const blankConfirm = testdate_CL.credential;
-    //     const profileflow = new Profile(blankConfirm);
-    //     await profileflow.ChangeLoginPassNoConfirm();
-    //     let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
-    //     await expect(message).toHaveText('COnfirm Password Is Required');
+        const blankConfirm = testdata_CL.credential;
+        const profileflow = new Profile(blankConfirm);
+        await profileflow.ChangeLoginPassNoConfirm();
+        let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+        await expect(message).toHaveText('Confirm Password Is Required');
 
-    //  });
+     });
+
+     it("T009 - CHange Login Password with invalid format new password", async() => {
+
+      const invalidnew = testdata_CL.credential;
+      const profileflow = new Profile(invalidnew);
+      await profileflow.ChangeLoginPassInvalidNew();
+      let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+      await expect(message).toBeDisplayed();
+
+     });
+
+     it("T010 - CHange Login Password with wrong current password", async() => {
+
+      const diffcurrent = testdata_CL.credential;
+      const profileflow = new Profile(diffcurrent);
+      await profileflow.ChangeLoginPassDiffCurrent();
+      let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
+      await expect(error).toHaveTextContaining('Invalid');
+
+     });
+
+     it("T011 - CHange Login Password with all input same value", async() => {
+
+      const allsame = testdata_CL.credential;
+      const profileflow = new Profile(allsame);
+      await profileflow.ChangeLoginPassAllSame();
+      let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+      await expect(error).toHaveText('Password Not Equal To Current Login Password');
+
+     });
+
+     it("T012 - CHange Login Password with diffent new password and confirm password", async() => {
+
+      const allsame = testdata_CL.credential;
+      const profileflow = new Profile(allsame);
+      await profileflow.ChangeLoginPassAllSame();
+      let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+      await expect(error).toHaveText('Password Not Equal To Current Login Password');
+
+     });
+
+     it("T011 - CHange Login Password with all input same value", async() => {
+
+      const allsame = testdata_CL.credential;
+      const profileflow = new Profile(allsame);
+      await profileflow.ChangeLoginPassAllSame();
+      let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+      await expect(error).toHaveText('Password Not Equal To Current Login Password');
+
+     });
+
+     it("T011 - CHange Login Password with all input same value", async() => {
+
+      const allsame = testdata_CL.credential;
+      const profileflow = new Profile(allsame);
+      await profileflow.ChangeLoginPassAllSame();
+      let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+      await expect(error).toHaveText('Password Not Equal To Current Login Password');
+
+     });
+
+     it("T011 - CHange Login Password with all input same value", async() => {
+
+      const allsame = testdata_CL.credential;
+      const profileflow = new Profile(allsame);
+      await profileflow.ChangeLoginPassAllSame();
+      let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+      await expect(error).toHaveText('Password Not Equal To Current Login Password');
+
+     });
 
 
 

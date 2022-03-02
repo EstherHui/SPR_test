@@ -72,5 +72,17 @@ export default class Credential{
     set confirmpassword(value){
         this._confirmpassword = value;
     }
+    get invalidpassword(){
+        return this._invalidpassword;
+    }
+    set invalidpassword(value){
+        this._invalidpassword = value;
+    }
+    get diffcurrent(){
+        return this._diffcurrent;
+    }
+    set diffcurrent(value){
+        this._diffcurrent = value;
+    }
 
 }

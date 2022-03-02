@@ -118,7 +118,58 @@ export default class Profile{
         await ProfilePage.inputCurrentPass(this._testdata.currentpassword);
         await ProfilePage.inputNewPasswordTXB(this._testdata.newpassword);
         await ProfilePage.clickChangeSubmitBTN();
+        await (await ProfilePage.CurrentPassword).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.NewPassTXB).doubleClick();
+        await browser.keys('Delete');
 
     }
+
+    async ChangeLoginPassInvalidNew(){
+
+        //await ProfilePage.clickProfileBTN();
+        //await ProfilePage.clickChangeLoginPass();
+        await ProfilePage.inputCurrentPass(this._testdata.invalidpassword);
+        await ProfilePage.inputNewPasswordTXB(this._testdata.newpassword);
+        await ProfilePage.inputConfirmPass(this._testdata.confirmpassword);
+        await ProfilePage.clickChangeSubmitBTN();
+       
+    }
+
+    async ChangeLoginPassDiffCurrent(){
+
+        //await ProfilePage.clickProfileBTN();
+        //await ProfilePage.clickChangeLoginPass();
+        await (await ProfilePage.CurrentPassword).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.NewPassTXB).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.ConfirmPassword).doubleClick();
+        await browser.keys('Delete');
+        await ProfilePage.inputCurrentPass(this._testdata.diffcurrent);
+        await ProfilePage.inputNewPasswordTXB(this._testdata.newpassword);
+        await ProfilePage.inputConfirmPass(this._testdata.confirmpassword);
+        await ProfilePage.clickChangeSubmitBTN();
+       
+    }
+
+    async ChangeLoginPassAllSame(){
+
+        //await ProfilePage.clickProfileBTN();
+        //await ProfilePage.clickChangeLoginPass();
+        await (await ProfilePage.CurrentPassword).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.NewPassTXB).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.ConfirmPassword).doubleClick();
+        await browser.keys('Delete');
+        await ProfilePage.inputCurrentPass(this._testdata.password);
+        await ProfilePage.inputNewPasswordTXB(this._testdata.password);
+        await ProfilePage.inputConfirmPass(this._testdata.password);
+        await ProfilePage.clickChangeSubmitBTN();
+       
+    }
+
+
 
 }
