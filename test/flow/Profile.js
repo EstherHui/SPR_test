@@ -170,6 +170,40 @@ export default class Profile{
        
     }
 
+    async ChangeLoginPassDiffNewConfirm(){
+
+        //await ProfilePage.clickProfileBTN();
+        //await ProfilePage.clickChangeLoginPass();
+        await (await ProfilePage.CurrentPassword).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.NewPassTXB).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.ConfirmPassword).doubleClick();
+        await browser.keys('Delete');
+        await ProfilePage.inputCurrentPass(this._testdata.password);
+        await ProfilePage.inputNewPasswordTXB(this._testdata.newpassword);
+        await ProfilePage.inputConfirmPass(this._testdata.password);
+        await ProfilePage.clickChangeSubmitBTN();
+       
+    }
+
+    async ChangeLoginPassSuccess(){
+
+        //await ProfilePage.clickProfileBTN();
+        //await ProfilePage.clickChangeLoginPass();
+        await (await ProfilePage.CurrentPassword).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.NewPassTXB).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.ConfirmPassword).doubleClick();
+        await browser.keys('Delete');
+        await ProfilePage.inputCurrentPass(this._testdata.password);
+        await ProfilePage.inputNewPasswordTXB(this._testdata.newpassword);
+        await ProfilePage.inputConfirmPass(this._testdata.confirmpassword);
+        await ProfilePage.clickChangeSubmitBTN();
+       
+    }
+
 
 
 }

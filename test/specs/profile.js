@@ -118,43 +118,42 @@ describe( 'Profile002 - ', () => {
 
      });
 
-     it("T012 - CHange Login Password with diffent new password and confirm password", async() => {
+     it("T012 - Change Login Password with diffent new password and confirm password", async() => {
 
-      const allsame = testdata_CL.credential;
-      const profileflow = new Profile(allsame);
-      await profileflow.ChangeLoginPassAllSame();
+      const disffnewconf = testdata_CL.credential;
+      const profileflow = new Profile(disffnewconf);
+      await profileflow.ChangeLoginPassDiffNewConfirm();
       let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
-      await expect(error).toHaveText('Password Not Equal To Current Login Password');
+      await expect(error).toHaveText('Confirm Passsword Must Equal To New Login Password');
 
      });
 
-     it("T011 - CHange Login Password with all input same value", async() => {
+     it("T013 - Change Login Password successful", async() => {
 
-      const allsame = testdata_CL.credential;
-      const profileflow = new Profile(allsame);
-      await profileflow.ChangeLoginPassAllSame();
-      let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
-      await expect(error).toHaveText('Password Not Equal To Current Login Password');
-
-     });
-
-     it("T011 - CHange Login Password with all input same value", async() => {
-
-      const allsame = testdata_CL.credential;
-      const profileflow = new Profile(allsame);
-      await profileflow.ChangeLoginPassAllSame();
-      let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
-      await expect(error).toHaveText('Password Not Equal To Current Login Password');
+      const loginChange = testdata_CL.credential;
+      const profileflow = new Profile(loginChange);
+      await profileflow.ChangeLoginPassSuccess();
+      let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
+      await expect(error).toHaveTextContaining('Successfully');
 
      });
 
-     it("T011 - CHange Login Password with all input same value", async() => {
+     it("T014 - log into system with the new password", async() => {
 
-      const allsame = testdata_CL.credential;
-      const profileflow = new Profile(allsame);
-      await profileflow.ChangeLoginPassAllSame();
-      let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
-      await expect(error).toHaveText('Password Not Equal To Current Login Password');
+      const login = testdata_CL.credential;
+      const profileflow = new Profile(login);
+      await profileflow.login();
+      await expect(browser).toHaveUrlContaining('home'); 
+
+     });
+
+     it("T015 - log into system with old password", async() => {
+
+      const loginFail = testdata_CL.credential;
+      const profileflow = new Profile(loginFail);
+      await profileflow.login();
+      let error = await $('[class= "MuiAlert-message css-1w0ym84"]');
+      await expect(error).toHaveText('Invalid Username or Password');
 
      });
 
