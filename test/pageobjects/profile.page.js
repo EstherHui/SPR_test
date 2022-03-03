@@ -21,7 +21,7 @@ class ProfilePage extends Page{
     get TradingPass04(){ return $('input[aria-label="Digit 4"]'); }
     get TradingPass05(){ return $('input[aria-label="Digit 5"]'); }
     get TradingPass06(){ return $('input[aria-label="Digit 6"]'); }
-
+    get ConfirmBTN(){ return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1tatqka"]');   }
 
     get UsernameTXB() {
         return $('input[name="username"]');
@@ -165,7 +165,9 @@ class ProfilePage extends Page{
         return this;
 
     }
-    
+
+
+  
 
 
     open() {

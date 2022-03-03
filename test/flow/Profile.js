@@ -19,6 +19,16 @@ export default class Profile{
         return this;
     }
 
+    async logout(){
+
+        await (await ProfilePage.ProfileBTN).click();
+        await (await ProfilePage.SignOutBtn).click();
+        await (await ProfilePage.ConfirmBTN).click();
+
+        return this;
+
+    }
+
     async ProfileDisplay(){
 
         await ProfilePage.clickProfileBTN();

@@ -46,87 +46,87 @@ describe( 'Profile002 - ', () => {
         
     //  });
 
-     it("T005 - blank Change Login Password ", async() => {
+   //   it("T005 - blank Change Login Password ", async() => {
        
-        const blank= testdata_CL.credential;
-        const profileflow = new Profile(blank);
-        await profileflow.login();
-        await profileflow.blankChangeLoginPass();
-        let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
-        await expect(message).toHaveTextContaining('Is Required');
-     });
+   //      const blank= testdata_CL.credential;
+   //      const profileflow = new Profile(blank);
+   //      await profileflow.login();
+   //      await profileflow.blankChangeLoginPass();
+   //      let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+   //      await expect(message).toHaveTextContaining('Is Required');
+   //   });
 
-     it("T006 - Change Login Password with blank current password ", async() => {
+   //   it("T006 - Change Login Password with blank current password ", async() => {
        
-        const blankCurrent= testdata_CL.credential;
-        const profileflow = new Profile(blankCurrent);
-        //await profileflow.login();
-        await profileflow.ChangeLoginPassNoCurrent();
-        let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
-        await expect(message).toHaveText('Current Password Is Required');
+   //      const blankCurrent= testdata_CL.credential;
+   //      const profileflow = new Profile(blankCurrent);
+   //      //await profileflow.login();
+   //      await profileflow.ChangeLoginPassNoCurrent();
+   //      let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+   //      await expect(message).toHaveText('Current Password Is Required');
 
-     });
+   //   });
 
-     it("T007 - Change Login Password with blank new password ", async() => {
+   //   it("T007 - Change Login Password with blank new password ", async() => {
 
-        const blankNew= testdata_CL.credential;
-        const profileflow = new Profile(blankNew);
-        //await profileflow.login();
-        await profileflow.ChangeLoginPassNoNew();
-        let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
-        await expect(message).toHaveText('Password Is Required');
+   //      const blankNew= testdata_CL.credential;
+   //      const profileflow = new Profile(blankNew);
+   //      //await profileflow.login();
+   //      await profileflow.ChangeLoginPassNoNew();
+   //      let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+   //      await expect(message).toHaveText('Password Is Required');
 
-     });
+   //   });
 
-     it("T008 - Change Login Password with blank confirm password ", async() => {
+   //   it("T008 - Change Login Password with blank confirm password ", async() => {
 
-        const blankConfirm = testdata_CL.credential;
-        const profileflow = new Profile(blankConfirm);
-        await profileflow.ChangeLoginPassNoConfirm();
-        let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
-        await expect(message).toHaveText('Confirm Password Is Required');
+   //      const blankConfirm = testdata_CL.credential;
+   //      const profileflow = new Profile(blankConfirm);
+   //      await profileflow.ChangeLoginPassNoConfirm();
+   //      let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+   //      await expect(message).toHaveText('Confirm Password Is Required');
 
-     });
+   //   });
 
-     it("T009 - CHange Login Password with invalid format new password", async() => {
+   //   it("T009 - CHange Login Password with invalid format new password", async() => {
 
-      const invalidnew = testdata_CL.credential;
-      const profileflow = new Profile(invalidnew);
-      await profileflow.ChangeLoginPassInvalidNew();
-      let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
-      await expect(message).toBeDisplayed();
+   //    const invalidnew = testdata_CL.credential;
+   //    const profileflow = new Profile(invalidnew);
+   //    await profileflow.ChangeLoginPassInvalidNew();
+   //    let message = await $('[class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+   //    await expect(message).toBeDisplayed();
 
-     });
+   //   });
 
-     it("T010 - CHange Login Password with wrong current password", async() => {
+   //   it("T010 - CHange Login Password with wrong current password", async() => {
 
-      const diffcurrent = testdata_CL.credential;
-      const profileflow = new Profile(diffcurrent);
-      await profileflow.ChangeLoginPassDiffCurrent();
-      let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
-      await expect(error).toHaveTextContaining('Invalid');
+   //    const diffcurrent = testdata_CL.credential;
+   //    const profileflow = new Profile(diffcurrent);
+   //    await profileflow.ChangeLoginPassDiffCurrent();
+   //    let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
+   //    await expect(error).toHaveTextContaining('Invalid');
 
-     });
+   //   });
 
-     it("T011 - CHange Login Password with all input same value", async() => {
+   //   it("T011 - CHange Login Password with all input same value", async() => {
 
-      const allsame = testdata_CL.credential;
-      const profileflow = new Profile(allsame);
-      await profileflow.ChangeLoginPassAllSame();
-      let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
-      await expect(error).toHaveText('Password Not Equal To Current Login Password');
+   //    const allsame = testdata_CL.credential;
+   //    const profileflow = new Profile(allsame);
+   //    await profileflow.ChangeLoginPassAllSame();
+   //    let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+   //    await expect(error).toHaveText('Password Not Equal To Current Login Password');
 
-     });
+   //   });
 
-     it("T012 - Change Login Password with diffent new password and confirm password", async() => {
+   //   it("T012 - Change Login Password with diffent new password and confirm password", async() => {
 
-      const disffnewconf = testdata_CL.credential;
-      const profileflow = new Profile(disffnewconf);
-      await profileflow.ChangeLoginPassDiffNewConfirm();
-      let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
-      await expect(error).toHaveText('Confirm Passsword Must Equal To New Login Password');
+   //    const disffnewconf = testdata_CL.credential;
+   //    const profileflow = new Profile(disffnewconf);
+   //    await profileflow.ChangeLoginPassDiffNewConfirm();
+   //    let error = await $('[class = "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+   //    await expect(error).toHaveText('Confirm Passsword Must Equal To New Login Password');
 
-     });
+   //   });
 
      it("T013 - Change Login Password successful", async() => {
 
@@ -135,6 +135,7 @@ describe( 'Profile002 - ', () => {
       await profileflow.ChangeLoginPassSuccess();
       let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
       await expect(error).toHaveTextContaining('Successfully');
+      await loginFlow.logout();
 
      });
 
@@ -142,8 +143,9 @@ describe( 'Profile002 - ', () => {
 
       const login = testdata_CL.credential;
       const profileflow = new Profile(login);
-      await profileflow.login();
+      //await profileflow.login();
       await expect(browser).toHaveUrlContaining('home'); 
+      await loginFlow.logout();
 
      });
 
@@ -151,7 +153,7 @@ describe( 'Profile002 - ', () => {
 
       const loginFail = testdata_CL.credential;
       const profileflow = new Profile(loginFail);
-      await profileflow.login();
+      //await profileflow.login();
       let error = await $('[class= "MuiAlert-message css-1w0ym84"]');
       await expect(error).toHaveText('Invalid Username or Password');
 
