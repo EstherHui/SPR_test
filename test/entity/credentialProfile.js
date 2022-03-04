@@ -85,4 +85,36 @@ export default class Credential{
         this._diffcurrent = value;
     }
 
+    get newTpassword(){
+        return this._newpassword;
+    }
+    set newTpassword(value){
+        this._newpassword = value;
+    }
+    get currentTpassword(){
+        return this._currentpassword;
+    }
+    set currentTpassword(value){
+        this._currentpassword = value;
+    }
+    get confirmTpassword(){
+        return this._confirmpassword;
+    }
+    set confirmTpassword(value){
+        this._confirmpassword = value;
+    }
+    get invalidTpassword(){
+        return this._invalidpassword;
+    }
+    set invalidTpassword(value){
+        this._invalidpassword = value;
+    }
+    get diffTcurrent(){
+        return this._diffcurrent;
+    }
+    set diffTcurrent(value){
+        this._diffcurrent = value;
+    }
+
+
 }
