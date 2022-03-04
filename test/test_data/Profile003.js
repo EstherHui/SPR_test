@@ -2,12 +2,12 @@ import Credential from '../entity/credentialProfile';
 
 const credential = new Credential();
 credential.username = 'candy03';
-credential.password = 'As!23123';
-credential.currentTpassword = '123123' ;
-credential.newTpassword = '123456';
+credential.password = 'Qwerty!23';
+credential.currentTpassword = '123456' ;
+credential.newTpassword = '123123';
 credential.confirmTpassword =credential.newTpassword;
 credential.invalidTpassword = '123Abc';
-credential.diffTcurrent = '147852';
+credential.diffTcurrent = '654321';
 
 
 const data= {

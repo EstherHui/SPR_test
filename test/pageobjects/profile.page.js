@@ -12,7 +12,7 @@ class ProfilePage extends Page{
     get ReferralTree(){ return $('[class="MuiTreeItem-label"]'); }
     get UpdateBTN(){ return $('button[type="submit"]'); }
     get ChangePasswordBTN(){ return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1kx2vbf"]'); }
-    get ChangeSecondaryPassBTN(){ return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1kx2vbf"]'); }
+    get ChangeSecondaryPassBTN(){ return $('#root > div > div.MuiBox-root.css-oa138a > div > div.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-4.css-gnno8h > div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-4.css-1hro2a9 > div > div > div > button:nth-child(5)'); }
     get SignOutBtn(){ return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-1qqmpvb"]');   }
     get ProfileBTN(){ return $('[class="MuiBox-root css-hxya6w"]');    }
     get TradingPass01(){ return $('input[aria-label="Please enter verification code. Digit 1"]'); }
@@ -161,6 +161,48 @@ class ProfilePage extends Page{
         await expect  (await (this.NewPassTXB)).toBeDisplayed();
         await expect (await (this.ConfirmPassword)).toBeDisplayed();
         await expect (await (this.ChangeSubmitBTN)).toBeDisplayed();
+
+        return this;
+
+    }
+
+    get CurrentNDPassword(){ return $('input[name="current_secondary_pin"]'); }
+    get NewNDPassTXB(){ return $('input[name="secondary_pin"]');  }
+    get ConfirmNDPassword(){ return $('input[name="confirm_secondary_pin"]'); }
+    get ChangeNDSubmitBTN(){ return $('body > div.MuiModal-root.MuiDialog-root.css-126xj0f > div.MuiDialog-container.MuiDialog-scrollPaper.css-16u656j > div > div.MuiDialogContent-root.css-1a7bxxo > form > button');  }
+
+    async clickChangeNDPassBTN(){
+        await(await (this.ChangeSecondaryPassBTN)).click();
+        return this;
+    }
+
+    async clickChangeNDSubmitBTN(){
+        await (await this.ChangeNDSubmitBTN).click();
+        return this;
+    }
+
+    async inputCurrentNDPass(currentTpassword){
+        await (await this.CurrentNDPassword).setValue(currentTpassword);
+        return this;
+    }
+
+    async inputNewNDPasswordTXB(newTpassword){
+
+        await (await this.NewNDPassTXB).setValue(newTpassword);
+        return this;
+    }
+
+    async inputConfirmNDPass(confirmTpassword){
+        await (await this.ConfirmNDPassword).setValue(confirmTpassword);
+        return this;
+    }
+
+    async VerifyChangeSecondaryPass(){
+       
+        await expect (await (this.CurrentNDPassword)).toBeDisplayed();
+        await expect  (await (this.NewNDPassTXB)).toBeDisplayed();
+        await expect (await (this.ConfirmNDPassword)).toBeDisplayed();
+        await expect (await (this.ChangeNDSubmitBTN)).toBeDisplayed();
 
         return this;
 

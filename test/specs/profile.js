@@ -1,6 +1,7 @@
 import Profile from '../flow/Profile';
-import testdata from '../test_data/Profile001';
-import testdata_CL from '../test_data/Profile002';
+//import testdata from '../test_data/Profile001';
+//import testdata_CL from '../test_data/Profile002';
+import testdata_ND from '../test_data/Profile003';
 
 describe( 'Profile001 - ', () => {
     // it("T001 - Profile Display", async() => {
@@ -140,26 +141,99 @@ describe( 'Profile002 - ', () => {
 
    //   });
 
-     it("T014 - log into system with the new password", async() => {
+    //  it("T014 - log into system with the new password", async() => {
 
-      const login = testdata_CL.credential;
-      const profileflow = new Profile(login);
-      await profileflow.loginNewPass();
-      await expect(browser).toHaveUrlContaining('home'); 
-      await profileflow.logout02();
+    //   const login = testdata_CL.credential;
+    //   const profileflow = new Profile(login);
+    //   await profileflow.loginNewPass();
+    //   await expect(browser).toHaveUrlContaining('home'); 
+    //   await profileflow.logout02();
 
-     });
+    //  });
 
-     it("T015 - log into system with old password", async() => {
+    //  it("T015 - log into system with old password", async() => {
 
-      const loginFail = testdata_CL.credential;
-      const profileflow = new Profile(loginFail);
-      await profileflow.loginOldPass();
-      let error = await $('[class= "MuiAlert-message css-1w0ym84"]');
-      await expect(error).toHaveText('Invalid Username or Password');
-
-     });
-
-
+    //   const loginFail = testdata_CL.credential;
+    //   const profileflow = new Profile(loginFail);
+    //   await profileflow.loginOldPass();
+    //   let error = await $('[class= "MuiAlert-message css-1w0ym84"]');
+    //   await expect(error).toHaveText('Invalid Username or Password');
 
  });
+
+ describe ('Profile003 -' , () => {
+
+        it("T016 - Change Trading Password Display ", async() => {
+
+            const changeNDdisplay = testdata_ND.credential;
+            const profileflow = new Profile(changeNDdisplay);
+            await profileflow.login();
+            await profileflow.ChangeSecondaryPassDisplay();
+
+        });
+
+        // it("T017 - Change Trading Password with blank all field ", async() => {
+
+        //     const blankchangeND = testdata_ND.credential;
+        //     const profileflow = new Profile(blankchangeND);
+        //     // await profileflow.login();
+        //     await profileflow.blankChangeSecondary();
+        //     let message = await $('[class= "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]')
+        //     await expect(message).toHaveTextContaining('Is Required');
+
+        // });
+
+        // it("T018 - Change Trading Password with blank current password ", async() => {
+
+        //     const blankNDcurrent = testdata_ND.credential;
+        //     const profileflow = new Profile(blankNDcurrent);
+        //     // await profileflow.login();
+        //     await profileflow.ChangeSecondaryPassNoCurrent();
+        //     let message = await $('[class= "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+        //     await expect(message).toHaveText('Current Transaction Password Is Required');
+
+        // });
+
+        // it("T019 - Change Trading Password with blank new password", async() => {
+
+        //     const blanknew = testdata_ND.credential;
+        //     const profileflow = new Profile(blanknew);
+        //     await profileflow.ChangeSecondaryNoNew();
+        //     let message = await $('[class= "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+        //     await expect(message).toHaveText('Transaction Password Is Required');
+
+        // });
+
+        // it("T020 - Change Trading Password with blank confirm password" , async() =>{
+
+        //     const blankconfirm= testdata_ND.credential;
+        //     const profileflow = new Profile(blankconfirm);
+        //     await profileflow.ChangeSecondaryNoConfirm();
+        //     let message = await $('[class= "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1jbqw8g"]');
+        //     await expect(message).toHaveText('Confirm Transaction Password Is Required');
+
+        // });
+
+        it("T021 - Change Trading Password with invalid password ", async() => {
+
+            const invalidT = testdata_ND.credential;
+            const profileflow = new Profile(invalidT);
+            await profileflow.ChangeSecondaryWithInvalid();
+            let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
+            await expect(error).toHaveTextContaining('Must Be 6 Digits Number');
+
+        });
+
+        // it("T022 - Change Trading Password with wrong current password ", async() => {
+
+        //     const wrongT = testdata_ND.credential;
+        //     const profileflow = new Profile(wrongT);
+        //     await profileflow.ChangeSecondaryWithWrongCurrent();
+        //     let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
+        //     await expect(error).toHaveText('Invalid Transaction Password');
+        // })
+
+
+     });
+
+
