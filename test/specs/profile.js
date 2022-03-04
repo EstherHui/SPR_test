@@ -128,24 +128,25 @@ describe( 'Profile002 - ', () => {
 
    //   });
 
-     it("T013 - Change Login Password successful", async() => {
+   //   it("T013 - Change Login Password successful", async() => {
 
-      const loginChange = testdata_CL.credential;
-      const profileflow = new Profile(loginChange);
-      await profileflow.ChangeLoginPassSuccess();
-      let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
-      await expect(error).toHaveTextContaining('Successfully');
-      await loginFlow.logout();
+   //    const loginChange = testdata_CL.credential;
+   //    const profileflow = new Profile(loginChange);
+   //    await profileflow.login();
+   //    await profileflow.ChangeLoginPassSuccess();
+   //    let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
+   //    await expect(error).toHaveTextContaining('Successfully');
+   //    await profileflow.logout();
 
-     });
+   //   });
 
      it("T014 - log into system with the new password", async() => {
 
       const login = testdata_CL.credential;
       const profileflow = new Profile(login);
-      //await profileflow.login();
+      await profileflow.loginNewPass();
       await expect(browser).toHaveUrlContaining('home'); 
-      await loginFlow.logout();
+      await profileflow.logout02();
 
      });
 
@@ -153,7 +154,7 @@ describe( 'Profile002 - ', () => {
 
       const loginFail = testdata_CL.credential;
       const profileflow = new Profile(loginFail);
-      //await profileflow.login();
+      await profileflow.loginOldPass();
       let error = await $('[class= "MuiAlert-message css-1w0ym84"]');
       await expect(error).toHaveText('Invalid Username or Password');
 

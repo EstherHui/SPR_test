@@ -21,6 +21,16 @@ export default class Profile{
 
     async logout(){
 
+        // await (await ProfilePage.ProfileBTN).click();
+        await (await ProfilePage.SignOutBtn).click();
+        await (await ProfilePage.ConfirmBTN).click();
+
+        return this;
+
+    }
+
+    async logout02(){
+
         await (await ProfilePage.ProfileBTN).click();
         await (await ProfilePage.SignOutBtn).click();
         await (await ProfilePage.ConfirmBTN).click();
@@ -198,9 +208,10 @@ export default class Profile{
     }
 
     async ChangeLoginPassSuccess(){
-
-        //await ProfilePage.clickProfileBTN();
-        //await ProfilePage.clickChangeLoginPass();
+        
+        // await ProfilePage.open();
+        await ProfilePage.clickProfileBTN();
+        await ProfilePage.clickChangeLoginPass();
         await (await ProfilePage.CurrentPassword).doubleClick();
         await browser.keys('Delete');
         await (await ProfilePage.NewPassTXB).doubleClick();
@@ -212,6 +223,26 @@ export default class Profile{
         await ProfilePage.inputConfirmPass(this._testdata.confirmpassword);
         await ProfilePage.clickChangeSubmitBTN();
        
+    }
+
+    async loginNewPass(){
+
+        await ProfilePage.open();
+        await ProfilePage.inputUsername(this._testdata.username);
+        await ProfilePage.inputPassword(this._testdata.newpassword);
+        await ProfilePage.clickLoginBtn();
+
+        return this;
+    }
+
+    async loginOldPass(){
+
+        await ProfilePage.open();
+        await ProfilePage.inputUsername(this._testdata.username);
+        await ProfilePage.inputPassword(this._testdata.password);
+        await ProfilePage.clickLoginBtn();
+
+        return this;
     }
 
 
