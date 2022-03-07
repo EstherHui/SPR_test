@@ -421,6 +421,15 @@ export default class Profile{
 
     }
 
+    async Adjustment(){
+
+        await ProfilePage.openB();
+        await ProfilePage.inputAdminUserTXB(this._testdata.adminUsername);
+        await ProfilePage.inputAdminPasswordTXB(this._testdata.adminPassword);
+        await ProfilePage.clickAdminLoginBTN();
+
+    }
+
     
 
 

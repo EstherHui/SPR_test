@@ -208,12 +208,45 @@ class ProfilePage extends Page{
 
     }
 
+    // *****************************Admin Adjustment*************************************
+    get AdminUserTXB(){  return $('#email');  }
+    get AdminPasswordTXB(){ return $('body > div.login-bg > div.login-container.text-center > form > div:nth-child(2) > div:nth-child(2) > input');  }
+    get AdminLoginBTN(){ return $('body > div.login-bg > div.login-container.text-center > form > div:nth-child(4) > div > button');  }
+    get Ewallet() { return $("#\\32 4 > a");  }
+    get Adjustment() { return $("#\\32 8 > a"); }
+    // get WalletType() { return $('#ewallet_type_id'); }
+    get Wallet(){ return $('#ewallet_type_id > option:nth-child(2)'); }
+    
+
+    async inputAdminUserTXB(adminUsername){
+
+        await (await this.AdminUserTXB).setValue(adminUsername);
+        return this;
+
+    }
+
+    async inputAdminPasswordTXB(adminPassword){
+
+        await (await this.AdminPasswordTXB).setValue(adminPassword);
+        return this;
+
+    }
+
+    async clickAdminLoginBTN(){
+        
+        await (await this.AdminLoginBTN).click();
+        return this;
+
+    }
+
 
   
-
-
     open() {
         return super.open('login');
+    }
+
+    openB(){
+        return super.openB();
     }
 }
 

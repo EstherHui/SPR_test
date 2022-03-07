@@ -9,6 +9,9 @@ credential.confirmTpassword =credential.newTpassword;
 credential.invalidTpassword = '123Abc';
 credential.diffTcurrent = '654321';
 
+credential.adminUsername = 'tester01';
+credential.adminPassword = 'Qwerty!23';
+
 
 const data= {
     

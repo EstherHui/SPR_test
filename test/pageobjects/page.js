@@ -10,4 +10,8 @@ export default class Page {
     open(path) {
         return browser.url(`http://uwu.securelayers.cloud/${path}`)
     }
+
+    openB(){
+        return browser.url('http://uwu-admin.securelayers.cloud/admin')
+    }
 }
