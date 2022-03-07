@@ -214,15 +214,15 @@ describe( 'Profile002 - ', () => {
 
         // });
 
-        it("T021 - Change Trading Password with invalid password ", async() => {
+        // it("T021 - Change Trading Password with invalid password ", async() => {
 
-            const invalidT = testdata_ND.credential;
-            const profileflow = new Profile(invalidT);
-            await profileflow.ChangeSecondaryWithInvalid();
-            let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
-            await expect(error).toHaveTextContaining('Must Be 6 Digits Number');
+        //     const invalidT = testdata_ND.credential;
+        //     const profileflow = new Profile(invalidT);
+        //     await profileflow.ChangeSecondaryWithInvalid();
+        //     let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
+        //     await expect(error).toHaveTextContaining('Must Be 6 Digits Number');
 
-        });
+        // });
 
         // it("T022 - Change Trading Password with wrong current password ", async() => {
 
@@ -232,6 +232,37 @@ describe( 'Profile002 - ', () => {
         //     let error = await $('[class = "MuiAlert-message css-1w0ym84"]');
         //     await expect(error).toHaveText('Invalid Transaction Password');
         // })
+
+        it("T023 - Change Trading Password with all password same ", async() => {
+
+            const same = testdata_ND.credential;
+            const profileflow = new Profile(same);
+            await profileflow.ChangeSecondaryWithAllSame();
+            let message = await $('[class= "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+            await expect(message).toHaveTextContaining('Transaction Password Not Equal To Current Transaction Password');
+        })
+
+        it("T024 - Change Trading Password with different new and confirm transaction password ", async() => {
+
+            const diffNC = testdata_ND.credential;
+            const profileflow = new Profile(diffNC);
+            await profileflow.ChangeSecondaryWithDiffNewConfirm();
+            let message = await $('[class= "MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled css-1jbqw8g"]');
+            await expect(message).toHaveTextContaining('Must Equal To New Transaction Password');
+        })
+
+        it("T024 - Change Trading Password Success ", async() => {
+
+            const wohoo = testdata_ND.credential;
+            const profileflow = new Profile(wohoo);
+            await profileflow.ChangeSecondarySuccess();
+            let message = await $('[class= "MuiAlert-message css-1w0ym84"]');
+            await expect(message).toHaveTextContaining('Successfully');
+        })
+
+        
+
+
 
 
      });

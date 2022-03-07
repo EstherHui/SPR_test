@@ -344,6 +344,25 @@ export default class Profile{
         await ProfilePage.inputNewNDPasswordTXB(this._testdata.invalidpassword);
         await ProfilePage.inputConfirmNDPass(this._testdata.invalidpassword);
         await ProfilePage.clickChangeNDSubmitBTN();
+
+        return this;
+
+    }
+
+    async ChangeSecondaryWithWrongCurrent(){
+
+        //await ProfilePage.clickProfileBTN();
+        //await ProfilePage.clickChangeLoginPass();
+        await (await ProfilePage.CurrentNDPassword).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.NewNDPassTXB).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.ConfirmNDPassword).doubleClick();
+        await browser.keys('Delete');
+        await ProfilePage.inputCurrentNDPass(this._testdata.diffTcurrent);
+        await ProfilePage.inputNewNDPasswordTXB(this._testdata.newTpassword);
+        await ProfilePage.inputConfirmNDPass(this._testdata.confirmTpassword);
+        await ProfilePage.clickChangeNDSubmitBTN();
         // await (await ProfilePage.CurrentNDPassword).doubleClick();
         // await browser.keys('Delete');
         // await (await ProfilePage.NewNDPassTXB).doubleClick();
@@ -355,24 +374,54 @@ export default class Profile{
 
     }
 
-    async ChangeSecondaryWithWrongCurrent(){
+    async ChangeSecondaryWithAllSame(){
 
-        //await ProfilePage.clickProfileBTN();
-        //await ProfilePage.clickChangeLoginPass();
-        await ProfilePage.inputCurrentNDPass(this._testdata.diffTcurrent);
-        await ProfilePage.inputNewNDPasswordTXB(this._testdata.newTpassword);
-        await ProfilePage.inputConfirmNDPass(this._testdata.confirmTpassword);
-        await ProfilePage.clickChangeNDSubmitBTN();
         await (await ProfilePage.CurrentNDPassword).doubleClick();
         await browser.keys('Delete');
         await (await ProfilePage.NewNDPassTXB).doubleClick();
         await browser.keys('Delete');
         await (await ProfilePage.ConfirmNDPassword).doubleClick();
         await browser.keys('Delete');
-
-        return this;
+        await ProfilePage.inputCurrentNDPass(this._testdata.currentTpassword);
+        await ProfilePage.inputNewNDPasswordTXB(this._testdata.currentTpassword);
+        await ProfilePage.inputConfirmNDPass(this._testdata.currentTpassword);
+        await ProfilePage.clickChangeNDSubmitBTN();
+        // await browser.pause(10000);
 
     }
+
+    async ChangeSecondaryWithDiffNewConfirm(){
+
+        await (await ProfilePage.CurrentNDPassword).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.NewNDPassTXB).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.ConfirmNDPassword).doubleClick();
+        await browser.keys('Delete');
+        await ProfilePage.inputCurrentNDPass(this._testdata.currentTpassword);
+        await ProfilePage.inputNewNDPasswordTXB(this._testdata.newTpassword);
+        await ProfilePage.inputConfirmNDPass(this._testdata.currentTpassword);
+        await ProfilePage.clickChangeNDSubmitBTN();
+        // await browser.pause(10000);
+
+    }
+
+    async ChangeSecondarySuccess(){
+
+        await (await ProfilePage.CurrentNDPassword).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.NewNDPassTXB).doubleClick();
+        await browser.keys('Delete');
+        await (await ProfilePage.ConfirmNDPassword).doubleClick();
+        await browser.keys('Delete');
+        await ProfilePage.inputCurrentNDPass(this._testdata.currentTpassword);
+        await ProfilePage.inputNewNDPasswordTXB(this._testdata.newTpassword);
+        await ProfilePage.inputConfirmNDPass(this._testdata.confirmTpassword);
+        await ProfilePage.clickChangeNDSubmitBTN();
+
+    }
+
+    
 
 
 }
